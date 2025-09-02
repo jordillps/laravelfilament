@@ -10,3 +10,22 @@ composer install
 npm install
 
 -----------------------------------------------
+
+Instalacio livewire
+
+composer require livewire/livewire
+
+Instalació filament
+
+composer require filament/filament:"^4.0"
+php artisan filament:install --panels
+
+Crear usuari
+
+php artisan make:filament-user
+Jordi Llobet
+jordilps@gmail.com
+joibla068
+
+
+-----------------------------------------------------------------
