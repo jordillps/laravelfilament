@@ -1,0 +1,12 @@
+-------------------------------------------
+Instalació Laravel 12
+
+Crear projecte amb Laragon
+
+.env Incloure com a database mysql
+
+composer install
+
+npm install
+
+-----------------------------------------------
