@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            //agregar un campo rol
+            $table->string('role')->default('user'); // 'user' o 'admin'
+            //agregar un camp active
+            $table->boolean('active')->default(true); // true o false
+            //agregrar un campo fecha de nacimiento
+            $table->date('birthdate')->nullable();
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

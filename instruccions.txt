@@ -29,3 +29,36 @@ joibla068
 
 
 -----------------------------------------------------------------
+
+Crear els models i les migracions
+
+php artisan make:model Customer -m
+
+Afegir els camps del model a la migració
+
+
+Inicialitzar la base de dades i tornar a fer la migració
+
+php artisan migrate:fresh --seed
+
+Generem un usuari jordillps@gmail.com a DatabaseSeeder.php per tenir creat l'usuari cada vegada que fem migrate:fresh
+
+Afegim capms a a taula user des de la migració
+
+Per afegir un avatar al model User:
+
+1. Crear una migració per afegir el camp 'avatar' a la taula users:
+   php artisan make:migration add_avatar_to_users_table --table=users
+
+2. Editar la migració generada i afegir:
+   $table->string('avatar')->nullable();
+
+3. Executar la migració:
+   php artisan migrate
+
+4. Afegir 'avatar' al model User a la propietat $fillable:
+   protected $fillable = [..., 'avatar'];
+
+5. (Opcional) Actualitzar els formularis i vistes per permetre pujar o mostrar l'avatar.
+
+-------------------------------------------------------------------
