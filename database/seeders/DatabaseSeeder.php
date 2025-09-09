@@ -23,5 +23,14 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'birthdate' => '1968-07-28',
         ]);
+
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'admin',
+            'active' => true,
+            'birthdate' => '1968-07-28',
+        ]);
     }
 }

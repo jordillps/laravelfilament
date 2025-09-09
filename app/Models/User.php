@@ -3,11 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasAvatar
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -49,4 +52,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+   
+    
+    /**
+     * Get the URL for the user's avatar.
+     *
+     * @return string|null
+     */
+    public function getFilamentAvatarUrl(): ?string{
+         return $this->avatar;
+    }
+
+
+    
+   
+    
 }

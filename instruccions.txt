@@ -15,7 +15,7 @@ Instalacio livewire
 
 composer require livewire/livewire
 
-Instalació filament
+Instal·lació filament
 
 composer require filament/filament:"^4.0"
 php artisan filament:install --panels
@@ -62,3 +62,16 @@ Per afegir un avatar al model User:
 5. (Opcional) Actualitzar els formularis i vistes per permetre pujar o mostrar l'avatar.
 
 -------------------------------------------------------------------
+Crear el recurs User amb Filament
+
+1. Executa la comanda:
+   php artisan make:filament-resource User
+
+2. Edita el fitxer UserResource per afegir el camp 'avatar' als formularis i taules si vols mostrar o pujar l'avatar.
+
+-------------------------------------------------------------------
+Solució a l'error "livewire upload file expires" al pujar l'avatar:
+
+Funciona amb php artisan serve
+
+canviar el APP_URL=http://127.0.0.1:8000 al .env
