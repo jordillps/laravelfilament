@@ -9,6 +9,7 @@ use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements HasAvatar
 {
@@ -60,12 +61,17 @@ class User extends Authenticatable implements HasAvatar
      *
      * @return string|null
      */
-    public function getFilamentAvatarUrl(): ?string{
-         return $this->avatar;
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar ? asset('storage/' . $this->avatar) : null;
     }
 
-
-    
-   
-    
+    public function setAvatarAttribute($value)
+    {
+        // Si se elimina el avatar (valor null o vacío) o se actualiza
+        if ($this->avatar && ($this->avatar !== $value || empty($value))) {
+            Storage::disk('public')->delete($this->avatar);
+        }
+        $this->attributes['avatar'] = $value;
+    }
 }
