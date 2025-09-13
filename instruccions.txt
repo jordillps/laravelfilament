@@ -92,3 +92,6 @@ php artisan make:filament-resource Rol
 Implementar que solo usuarios con rol "admin" pueden cambiar los roles
 
 Implementar que solo los usuarios con role "admin"  pueden crear usuarios
+
+
+--------------------------------------------------------------------------------------
