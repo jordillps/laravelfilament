@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class RolResource extends Resource
 {
@@ -56,5 +57,10 @@ class RolResource extends Resource
     public static function getPluralModelLabel(): string
     {
         return 'Roles';
+    }
+
+    public static function canAccess(): bool
+    {
+        return Auth::user()?->role === 'admin';
     }
 }

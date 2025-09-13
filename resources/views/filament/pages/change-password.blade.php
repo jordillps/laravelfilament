@@ -3,9 +3,9 @@
         Usuario autenticado: {{ auth()->user()->name }}
     </div>
     <form wire:submit.prevent="submit">
-        <div class="space-y-6">
             {{ $this->form }}
-            <x-filament::button type="submit">
+        <div class="mt-6">
+            <x-filament::button  type="submit">
                 Cambiar contraseña
             </x-filament::button>
         </div>

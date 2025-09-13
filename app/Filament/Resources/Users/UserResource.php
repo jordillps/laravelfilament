@@ -69,11 +69,11 @@ class UserResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return 'Usuario';
+        return Auth::user()?->role === 'admin' ? 'Usuario' : 'Perfil';
     }
 
     public static function getPluralModelLabel(): string
     {
-        return 'Usuarios';
+        return Auth::user()?->role === 'admin' ? 'Usuarios' : 'Perfil';
     }
 }
