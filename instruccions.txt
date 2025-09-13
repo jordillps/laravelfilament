@@ -75,3 +75,20 @@ Solució a l'error "livewire upload file expires" al pujar l'avatar:
 Funciona amb php artisan serve
 
 canviar el APP_URL=http://127.0.0.1:8000 al .env
+
+
+Configuració per canviar la cantraseya
+
+------------------------------------------------------------------------------------------
+
+Creació del recurs "rol"
+
+php artisan make:model Rol -m
+
+DatabaseSeeder crear els rols user y admin
+
+php artisan make:filament-resource Rol
+
+Implementar que solo usuarios con rol "admin" pueden cambiar los roles
+
+Implementar que solo los usuarios con role "admin"  pueden crear usuarios

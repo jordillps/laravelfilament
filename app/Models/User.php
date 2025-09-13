@@ -74,4 +74,10 @@ class User extends Authenticatable implements HasAvatar
         }
         $this->attributes['avatar'] = $value;
     }
+
+    //Crear relació amb el model Rol
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'role', 'name');        
+    }
 }

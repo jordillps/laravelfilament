@@ -8,7 +8,10 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserForm
 {
@@ -25,10 +28,16 @@ class UserForm
                     ->required(),
                 DateTimePicker::make('email_verified_at')
                     ->label('Correo verificado el'),
-                TextInput::make('role')
+                Select::make('role')
                     ->label('Rol')
                     ->required()
-                    ->default('user'),
+                    ->options(
+                        User::query()
+                            ->distinct()
+                            ->pluck('role', 'role')
+                            ->toArray()
+                    )
+                    ->disabled(fn () => Auth::user()?->role !== 'admin'),
                 Toggle::make('active')
                     ->label('Activo')
                     ->required(),

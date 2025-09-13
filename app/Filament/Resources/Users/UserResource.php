@@ -67,4 +67,13 @@ class UserResource extends Resource
         return $query;
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Usuario';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Usuarios';
+    }
 }
