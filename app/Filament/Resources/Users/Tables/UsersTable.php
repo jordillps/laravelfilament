@@ -37,6 +37,9 @@ class UsersTable
                     ->label('Fecha de nacimiento')
                     ->date()
                     ->sortable(),
+                TextColumn::make('phone')
+                    ->label('Teléfono')
+                    ->searchable(),
                 ImageColumn::make('avatar')
                     ->disk('public'),
                 TextColumn::make('created_at')

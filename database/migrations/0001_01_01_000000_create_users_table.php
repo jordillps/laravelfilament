@@ -24,6 +24,8 @@ return new class extends Migration
             //agregrar un campo fecha de nacimiento
             $table->date('birthdate')->nullable();
             $table->string('avatar')->nullable();
+            //phone
+            $table->string('phone')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

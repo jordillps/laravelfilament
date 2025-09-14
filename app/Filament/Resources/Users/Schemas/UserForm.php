@@ -41,6 +41,9 @@ class UserForm
                 Toggle::make('active')
                     ->label('Activo')
                     ->required(),
+                TextInput::make('phone')
+                    ->label('Teléfono')
+                    ->tel(),
                 DatePicker::make('birthdate')
                     ->label('Fecha de nacimiento'),
                 FileUpload::make('avatar')
@@ -62,6 +65,7 @@ class UserForm
             'active.required' => 'El estado activo es obligatorio.',
             'birthdate.date' => 'La fecha de nacimiento no es válida.',
             'avatar.image' => 'El avatar debe ser una imagen.',
+            'phone.tel' => 'El número de teléfono no es válido.',
         ];
     }
 
@@ -76,6 +80,7 @@ class UserForm
             'active' => 'activo',
             'birthdate' => 'fecha de nacimiento',
             'avatar' => 'avatar',
+            'phone' => 'teléfono',
         ];
     }
 }

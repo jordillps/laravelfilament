@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'active' => true,
             'birthdate' => '1968-07-28',
+            'phone' => '610464690',
         ]);
 
         User::factory()->create([
@@ -41,6 +42,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'user',
             'active' => true,
             'birthdate' => '1968-07-28',
+            'phone' => '123456789',
         ]);
 
 
