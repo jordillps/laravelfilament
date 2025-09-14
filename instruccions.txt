@@ -91,7 +91,26 @@ php artisan make:filament-resource Rol
 
 Implementar que solo usuarios con rol "admin" pueden cambiar los roles
 
-Implementar que solo los usuarios con role "admin"  pueden crear usuarios
+Implementar que solo los usuarios con role "admin"  poden crear usuarios
 
 
 --------------------------------------------------------------------------------------
+
+Agefir el camp telefon en rl perfil d'usuari
+
+Editar la Migracio
+
+Editar el model fillable
+
+Editar els forms de Filament
+
+------------------------------------------------------------------------------------
+Implementar la funcionalitat "he oblidat el password" a la pàgina de login
+
+Per publicar el fitxer de configuració de Filament:
+
+php artisan vendor:publish --tag=filament-config
+
+Arxiu AdminPanelProvider afegir les funcionalitats que necessites, per exemple:
+->passwordReset()
+->emailVerification()

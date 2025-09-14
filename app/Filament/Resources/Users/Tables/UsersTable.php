@@ -41,7 +41,7 @@ class UsersTable
                     ->label('Teléfono')
                     ->searchable(),
                 ImageColumn::make('avatar')
-                    ->disk('public'),
+                    ->disk('media'),
                 TextColumn::make('created_at')
                     ->label('Creado el')
                     ->dateTime()

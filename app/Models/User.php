@@ -64,14 +64,14 @@ class User extends Authenticatable implements HasAvatar
      */
     public function getFilamentAvatarUrl(): ?string
     {
-        return $this->avatar ? asset('storage/' . $this->avatar) : null;
+        return $this->avatar ? asset('media/' . $this->avatar) : null;
     }
 
     public function setAvatarAttribute($value)
     {
         // Si se elimina el avatar (valor null o vacío) o se actualiza
         if ($this->avatar && ($this->avatar !== $value || empty($value))) {
-            Storage::disk('public')->delete($this->avatar);
+            Storage::disk('media')->delete($this->avatar);
         }
         $this->attributes['avatar'] = $value;
     }

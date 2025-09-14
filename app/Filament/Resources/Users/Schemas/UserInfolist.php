@@ -28,7 +28,8 @@ class UserInfolist
                     ->label('Fecha de nacimiento')
                     ->date(),
                 ImageEntry::make('avatar')
-                    ->disk('public')
+                    ->disk('media')
+                    ->directory('perfiles')
                     ->square(),
                 TextEntry::make('created_at')
                     ->label('Creado el')

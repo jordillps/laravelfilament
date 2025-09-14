@@ -12,6 +12,8 @@ use Filament\Forms\Components\Select;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class UserForm
 {
@@ -49,9 +51,16 @@ class UserForm
                 FileUpload::make('avatar')
                     ->label('Avatar')
                     ->avatar()
-                    ->disk('public')
+                    ->disk('media')
+                    ->directory('perfiles')
                     ->image()
-                    ->visibility('public'),
+                    ->visibility('public')
+                    ->getUploadedFileNameForStorageUsing(function ($file, $record) {
+                        $username = $record?->name ?? 'avatar';
+                        $date = Carbon::now()->format('Y-m-d_H-i-s');
+                        $extension = $file->getClientOriginalExtension();
+                        return Str::slug($username) . '-' . $date . '.' . $extension;
+                    }),
         ]);
     }
 
